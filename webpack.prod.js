@@ -32,6 +32,14 @@ module.exports = merge(common, {
                     "sass-loader" //1. turns sass into css
                 ],
             },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env']
+                }
+            },
         ],
     },
 });
