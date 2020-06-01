@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const StylelintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -24,7 +25,8 @@ module.exports = {
             inject: true,
             chunks: ['about'],
             filename: 'about.html'
-        })
+        }),
+        new StylelintPlugin(options)
     ],
     module: {
         rules: [
