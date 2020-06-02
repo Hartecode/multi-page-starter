@@ -1,0 +1,29 @@
+@import "../../../node_modules/normalize-scss/sass/normalize";
+
+@include normalize();
+
+body {
+    background-color: green;
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+.sample-img {
+    max-width: 900px;
+    width: 100%;
+}
+
+
+.box-container {
+    display: flex;
+    user-select: none;
+
+    .box {
+        height: 100px;
+        width: 100px;
+        margin: 5px;
+        background-color: yellow;
+    }
+}
