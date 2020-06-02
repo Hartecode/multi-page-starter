@@ -5,7 +5,7 @@ const path = require('path');
 
 const splitDirName = (p) => path.dirname(p).split('/');
 
-const entryFiles = glob.sync('./src/pages/**/*.js').reduce((acc, cur) => {
+const entryFiles = glob.sync('./src/pages/**/index.js').reduce((acc, cur) => {
     const pathArr = splitDirName(cur);
     const key = pathArr[pathArr.length - 1];
     return {
@@ -14,7 +14,7 @@ const entryFiles = glob.sync('./src/pages/**/*.js').reduce((acc, cur) => {
     }
 }, {});
 
-const htmlPages = glob.sync('./src/pages/**/*.html').map(p => {
+const htmlPages = glob.sync('./src/pages/**/index.html').map(p => {
     const pathArr = splitDirName(p);
     const folderName = pathArr[pathArr.length -1];
     return new HtmlWebpackPlugin({
@@ -24,8 +24,6 @@ const htmlPages = glob.sync('./src/pages/**/*.html').map(p => {
         filename: `${folderName}.html`
     })
 })
-
-console.log(entryFiles)
 
 module.exports = {
     entry: entryFiles,
