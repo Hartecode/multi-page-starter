@@ -5,16 +5,25 @@ import '../../base.scss';
 import './button.scss';
 import copyCodeBlock from '@pickra/copy-code-block';
 
+const options = {
+    cssOverrides: `
+      .container code {
+        padding: 1.5rem;
+      }
+    `
+  }
+  
 
-storiesOf('Button', module)
+
+storiesOf('Components/Button', module)
     .addDecorator(withKnobs)
     .addDecorator(withActions('click', 'click .btn'))
-    .add('button', () => {
+    .add('example', () => {
         return `
             <button class="btn">${text('Text', 'Click Me')}</button>
             <br>
             <br>
-            ${copyCodeBlock(`<button class="btn">${text('Text', 'Click Me')}</button>`)}
+            ${copyCodeBlock(`<button class="btn">${text('Text', 'Click Me')}</button>`, options)}
         `;
     })
     .add('test', () => {
