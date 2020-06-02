@@ -3,7 +3,6 @@ const path = require('path');
 
 module.exports = {
   stories: [
-    '../stories/**/*.stories.js',
     '../src/components/**/*.stories.js',
     '../src/pages/**/*.stories.js'
   ],
