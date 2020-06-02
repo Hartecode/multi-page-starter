@@ -26,7 +26,7 @@ module.exports = {
             chunks: ['about'],
             filename: 'about.html'
         }),
-        new StylelintPlugin(options)
+        new StylelintPlugin({})
     ],
     module: {
         rules: [
