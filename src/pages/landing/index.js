@@ -1,6 +1,6 @@
 import {test} from '../../js/test';
 import "../../main.css";
-import '../../index.scss';
+import '../index/index.scss';
 
 
 test('index');

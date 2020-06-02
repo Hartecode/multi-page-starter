@@ -1,31 +1,36 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const glob = require('glob');
+const path = require('path');
+
+const splitDirName = (p) => path.dirname(p).split('/');
+
+const entryFiles = glob.sync('./src/pages/**/*.js').reduce((acc, cur) => {
+    const pathArr = splitDirName(cur);
+    const key = pathArr[pathArr.length - 1];
+    return {
+        ...acc,
+        [key]: cur 
+    }
+}, {});
+
+const htmlPages = glob.sync('./src/pages/**/*.html').map(p => {
+    const pathArr = splitDirName(p);
+    const folderName = pathArr[pathArr.length -1];
+    return new HtmlWebpackPlugin({
+        template: p,
+        inject: true,
+        chunks: [folderName],
+        filename: `${folderName}.html`
+    })
+})
+
+console.log(entryFiles)
 
 module.exports = {
-    entry: {
-        index: './src/pages/landing/index.js',
-        landing: './src/pages/landing/index.js',
-        about: './src/pages/about/about.js'
-    },
+    entry: entryFiles,
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './src/index.html',
-            inject: true,
-            chunks: ['index'],
-            filename: 'index.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/pages/landing/index.html',
-            inject: true,
-            chunks: ['landing'],
-            filename: 'landing.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/pages/about/index.html',
-            inject: true,
-            chunks: ['about'],
-            filename: 'about.html'
-        }),
+        ...htmlPages,
         new StylelintPlugin({})
     ],
     module: {
