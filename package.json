@@ -47,14 +47,12 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all",
-      "IE 10"
+      "not op_mini all"
     ],
     "development": [
       "last 2 chrome version",
       "last 2 firefox version",
-      "last 3 safari version",
-      "IE 10"
+      "last 3 safari version"
     ]
   },
   "dependencies": {

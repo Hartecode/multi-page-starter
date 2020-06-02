@@ -2,7 +2,11 @@ const custom = require('../webpack.dev.js');
 const path = require('path');
 
 module.exports = {
-  stories: ['../stories/**/*.stories.js', '../src/components/**/*.stories.js', '../src/pages/**/*.stories.js'],
+  stories: [
+    '../stories/**/*.stories.js',
+    '../src/components/**/*.stories.js',
+    '../src/pages/**/*.stories.js'
+  ],
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-knobs/register',

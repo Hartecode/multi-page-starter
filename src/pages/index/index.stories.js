@@ -16,8 +16,6 @@ storiesOf('Pages/Index', module)
     .add('Home', () => {
         return `
             ${template}
-            <br>
-            <br>
             ${copyCodeBlock(template, options)}
         `;
     });
