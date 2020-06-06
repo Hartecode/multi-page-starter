@@ -1,5 +1,4 @@
 import { storiesOf } from '@storybook/html';
-import '../../base.scss';
 import './index.scss';
 import copyCodeBlock from '@pickra/copy-code-block';
 import template from './index.html';

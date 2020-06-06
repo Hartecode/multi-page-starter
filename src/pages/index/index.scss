@@ -1,9 +1,6 @@
-@import "../../../node_modules/normalize-scss/sass/normalize";
-
-@include normalize();
+@import '../../base';
 
 body {
-    background-color: green;
 
     h1 {
         font-size: 4rem;
